@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -16,12 +17,30 @@ import java.util.Comparator;
 
 
 
-//dfs구현 - 배열에 연결되는 값을 저장후 큐를 사용해서 순회하면서 분리. 
+//dfs구현 
 
 public class Main{
 	static int[][] arr;
-	static boolean[] check;
-	static int k;
+	static boolean[][] check;
+	static int n,m,k;
+	static int[] dx = {0, -1, 0, 1};
+	static int[] dy = {1,0,-1,0};
+	
+	static void dfs(int x, int y) {
+		 check[x][y] = true;
+		 
+		 for(int i=0; i<4;i++) {
+			 int cx = x+dx[i];
+			 int cy = y+dy[i];
+			 
+			 if(cx >=0 && cy>=0 && cx<n && cy<m) {
+				 if(!check[cx][cy] && arr[cx][cy]==1) {
+					 dfs(cx,cy);
+				 }
+			 }
+		 }
+ 		
+	}
 	
 	public static void main(String args[]) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -33,15 +52,15 @@ public class Main{
 		
 		for(int q =0;q<t;q++) {
 			String[] nm =br.readLine().split(" "); 
-			int n = Integer.valueOf(nm[0]);
-			int m = Integer.valueOf(nm[1]);
+			n = Integer.valueOf(nm[0]);
+			m = Integer.valueOf(nm[1]);
 			k = Integer.valueOf(nm[2]);
 			
-			
-		arr = new int[n+1][m+1];
+		int count=0;	
+		arr = new int[n][m];
 		
 		
-		
+		check = new boolean[n][m];
 			
 			
 			for(int i =0;i<k;i++) {
@@ -52,17 +71,23 @@ public class Main{
 				
 			}
 			
-
+			for(int i=0;i<arr.length;i++) {
+				for(int j=0;j<arr[0].length;j++) {
+					if(!check[i][j] && arr[i][j]==1) {
+						dfs(i,j);
+						count++;
+					}
+				}
+			}
 			
 			
 
-			find();	
 			
 
 
 			
 				
-				bw.write(String.valueOf(k));
+				bw.write(String.valueOf(count));
 				bw.newLine();
 		}
 			
@@ -80,67 +105,9 @@ public class Main{
 
 
 	
-	public static void find() {
-		
-			for(int i=0;i<arr.length;i++) {
-				for(int j=0;j<arr[0].length;j++) {
-					if(arr[i][j]==1) {
-						Xfind(i,j);
-						Yfind(i,j);
-						
-					}
-				}
-			}
-		
-		
-	}
 	
-	public static void Xfind(int y,int x) {//가로를 찾기
-		
-		arr[y][x]=0;
-		if(x>0) {
-			
-			if(arr[y][x-1]==1) {
-				
-				k--;
-				Yfind(y,x-1);
-				Xfind(y,x-1);
-			}
-			
-		}
-		if(x<arr[0].length-1) {
-			if(arr[y][x+1]==1) {
-				
-				k--;
-				Yfind(y,x+1);
-				Xfind(y,x+1);
-			}
-			
-		}
-	}
 	
-	public static void Yfind(int y,int x) {
-		arr[y][x]=0;
-		if(y>0) {
-			
-			if(arr[y-1][x]==1) {
-				
-				k--;
-				Yfind(y-1,x);
-				Xfind(y-1,x);
-			}
-			
-		}
-		if(y<arr.length-1) {
-			if(arr[y+1][x]==1) {
-			
-				k--;
-				Yfind(y+1,x);
-				Xfind(y+1,x);
-			}
-			
-		}
-	}
+	
 	
 	
 }
