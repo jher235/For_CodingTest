@@ -1,5 +1,5 @@
-import javax.print.DocFlavor;
 import java.io.*;
+import java.math.BigInteger;
 import java.util.StringTokenizer;
 
 
@@ -19,23 +19,21 @@ public class Main {
 
         int a = 'a';
 
-        long ans = 0L;
+        BigInteger ans = new BigInteger("0");
         for (int i=0;i<L;i++){
-            ans += hashing((int)input.charAt(i) - (a-1), i);
+            ans = ans.add(hashing((int)input.charAt(i) - (a-1), i));
+            ans = ans.remainder(BigInteger.valueOf(DIVISION_PRIME_NUMBER));
         }
         System.out.println(ans);
     }
 
-    private static Long hashing(int number, int degree){
-        long result = 1;
-        if (degree != 0){
-            result = MULTIPLICATION_PRIME_NUMBER;
+    private static BigInteger hashing(int number, int degree){
+        BigInteger result = new BigInteger("1");
+        for (int i=0;i<degree;i++){
+            result = result.multiply(BigInteger.valueOf(MULTIPLICATION_PRIME_NUMBER));
+            result = result.remainder(BigInteger.valueOf(DIVISION_PRIME_NUMBER));
         }
-        for (int i=1;i<degree;i++){
-            result *= MULTIPLICATION_PRIME_NUMBER;
-            result %= DIVISION_PRIME_NUMBER;
-        }
-        return number * result % DIVISION_PRIME_NUMBER;
+        return result.multiply(BigInteger.valueOf(number)).remainder(BigInteger.valueOf(DIVISION_PRIME_NUMBER));
     }
 
 }
