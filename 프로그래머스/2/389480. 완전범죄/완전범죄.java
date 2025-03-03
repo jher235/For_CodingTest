@@ -26,7 +26,7 @@ class Solution {
                 
                 //b로 받은 경우
                 if(j+b < m){
-                    dp[i][j+b] = Math.min(dp[i][j], dp[i-1][j]);
+                    dp[i][j+b] = Math.min(dp[i][j+b], dp[i-1][j]);
                 }             
             }
         }
