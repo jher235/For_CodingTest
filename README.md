@@ -7,6 +7,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | [0176-second-highest-salary](https://github.com/jher235/For_CodingTest/tree/master/0176-second-highest-salary) |
 | [0185-department-top-three-salaries](https://github.com/jher235/For_CodingTest/tree/master/0185-department-top-three-salaries) |
 | [0585-investments-in-2016](https://github.com/jher235/For_CodingTest/tree/master/0585-investments-in-2016) |
+| [1527-patients-with-a-condition](https://github.com/jher235/For_CodingTest/tree/master/1527-patients-with-a-condition) |
 ## Array
 |  |
 | ------- |
