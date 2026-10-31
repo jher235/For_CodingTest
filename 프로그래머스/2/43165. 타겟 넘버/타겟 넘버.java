@@ -1,28 +1,36 @@
 
 
 class Solution {
-    static int ans = 0;
+    int ans = 0;
+    int target;
+    int[] numbers;
+    
     public int solution(int[] numbers, int target) {    
-        int sum = 0;
+        this.target = target;
+        this.numbers = numbers;
         
-        dfs(numbers, 0, 0, target);
-        
+    
+        dfs(0, 0);
         return ans;
     }
     
-    
-    private void dfs(int[] numbers, int depth, int current, int target){
-        if(depth == numbers.length -1){ // 마지막이면
-            if(current + numbers[depth] == target){
-                ans++;
-            }else if(current - numbers[depth] == target){
+    // 백트래킹으로 하나하나를 전부...
+    public void dfs(int curIdx, int sum){
+        
+        if(curIdx == numbers.length){
+            // System.out.println(sum);
+            if(sum == target){
                 ans++;
             }
             return;
-        }else{
-            dfs(numbers, depth+1, current + numbers[depth], target);
-            dfs(numbers, depth+1, current - numbers[depth], target);
         }
         
+        int cur = numbers[curIdx];
+
+        dfs(curIdx + 1, sum + cur);
+        dfs(curIdx + 1, sum - cur);
+        
     }
+    
+
 }
