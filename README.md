@@ -13,6 +13,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 | ------- |
 | [0416-partition-equal-subset-sum](https://github.com/jher235/For_CodingTest/tree/master/0416-partition-equal-subset-sum) |
 | [0695-max-area-of-island](https://github.com/jher235/For_CodingTest/tree/master/0695-max-area-of-island) |
+| [1926-nearest-exit-from-entrance-in-maze](https://github.com/jher235/For_CodingTest/tree/master/1926-nearest-exit-from-entrance-in-maze) |
 | [2044-count-number-of-maximum-bitwise-or-subsets](https://github.com/jher235/For_CodingTest/tree/master/2044-count-number-of-maximum-bitwise-or-subsets) |
 ## Dynamic Programming
 |  |
@@ -34,6 +35,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0695-max-area-of-island](https://github.com/jher235/For_CodingTest/tree/master/0695-max-area-of-island) |
+| [1926-nearest-exit-from-entrance-in-maze](https://github.com/jher235/For_CodingTest/tree/master/1926-nearest-exit-from-entrance-in-maze) |
 ## Union-Find
 |  |
 | ------- |
@@ -42,6 +44,7 @@ A collection of LeetCode questions to ace the coding interview! - Created using 
 |  |
 | ------- |
 | [0695-max-area-of-island](https://github.com/jher235/For_CodingTest/tree/master/0695-max-area-of-island) |
+| [1926-nearest-exit-from-entrance-in-maze](https://github.com/jher235/For_CodingTest/tree/master/1926-nearest-exit-from-entrance-in-maze) |
 ## Backtracking
 |  |
 | ------- |
